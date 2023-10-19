@@ -1,0 +1,29 @@
+<section class="sect1">
+    <div class="container">
+        <h1>Employees</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Designation</th>
+                        <th scope="col">Contact</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let emp of employeedata">
+                    <tr>
+                        <td>{{emp.firstName}}</td>
+                        <td>{{emp.lastName}}</td>
+                        <td>{{emp.email}}</td>
+                        <td>{{emp.departmentId}}</td>
+                        <td>{{emp.designationId}}</td>
+                        <td>{{emp.mobileNumber}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

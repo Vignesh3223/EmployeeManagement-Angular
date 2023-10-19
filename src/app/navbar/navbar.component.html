@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink='/home'>Home</a>
+                </li>
+                <div class="d-flex" *ngIf="logged">
+                    <div *ngIf="roleName=='Admin'">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink='/allemployees'>Employees</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Add Employee</a>
+                        </li>
+                    </div>
+                    <div *ngIf="roleName=='Employee'">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">View Profile</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+            <form class="d-flex" *ngIf="logged">
+                <h2>{{fullName}}</h2>
+                <button mat-raised-button color="warn" (click)="logout()">Logout
+                    <i class="pi pi-sign-out"></i></button>
+            </form>
+        </div>
+    </div>
+</nav>

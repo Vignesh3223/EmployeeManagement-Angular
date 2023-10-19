@@ -1,0 +1,48 @@
+<section class="sect1">
+    <div class="container mt-5 mb-5">
+        <div class="row text-center">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div class="card p-5">
+                    <form [formGroup]="LoginForm" novalidate>
+                        <h1 class="text-center mb-5">Login Page</h1>
+                        <div class="form-group mb-3">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Enter Username</mat-label>
+                                <input type="text" matInput placeholder="Username" formControlName="username"
+                                    [ngClass]="{'is-invalid':username.errors && (username.touched || username.dirty)}" />
+                                <mat-error *ngIf="username.errors?.required">Required Field</mat-error>
+                                <mat-error *ngIf="username.errors?.minLength">Name must contain atleast 4
+                                    characters</mat-error>
+                                <mat-error *ngIf="username.errors?.pattern">Enter a valid Username</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group mb-5">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Enter Password</mat-label>
+                                <input type="password" matInput [type]="hide ? 'password' : 'text'"
+                                    placeholder="Password" formControlName="password"
+                                    [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty)}" />
+                                <button mat-icon-button matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="password.errors?.required">Required Field</mat-error>
+                                <mat-error *ngIf="password.errors?.pattern">Password must be Valid</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group text-center">
+                            <p-toast position="top-right"></p-toast>
+                            <button class="me-3" mat-icon mat-raised-button color="warn" routerLink=''>
+                                Go Back<mat-icon>home</mat-icon></button>
+                            <button mat-icon mat-raised-button color="primary" (click)="onLogin(LoginForm.value)">
+                                Login<mat-icon>key</mat-icon></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-2"></div>
+
+        </div>
+    </div>
+</section>
