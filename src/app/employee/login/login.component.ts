@@ -41,10 +41,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  showSuccess() {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Login Success' });
-  }
-
   showError() {
     this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Please fill in all the details' });
   }
@@ -55,8 +51,6 @@ export class LoginComponent implements OnInit {
     }
     else {
       this.employeeService.validateUser(employee);
-      this.showSuccess();
-      setTimeout(() => { this.router.navigate(['/home']) }, 1000);
     }
   }
 }

@@ -1,0 +1,76 @@
+<section class="sec1">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-6">
+                <h1 class="text-center">Departments Info</h1>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Department ID</th>
+                                <th scope="col">Department Name</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let dept of departments">
+                            <tr>
+                                <td>{{dept.id}}</td>
+                                <td>{{dept.departmentname}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h1 class="text-center">Designation Info</h1>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Department ID</th>
+                                <th scope="col">Designation ID</th>
+                                <th scope="col">Designation Name</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let des of designation">
+                            <tr>
+                                <td>{{des.departmentId}}</td>
+                                <td>{{des.id}}</td>
+                                <td>{{des.designationName}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h1 class="text-center">Salary Details</h1>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Department ID</th>
+                                <th scope="col">Designation ID</th>
+                                <th scope="col">Basic Salary</th>
+                                <th scope="col">Benefits</th>
+                                <th scope="col">Bonus</th>
+                                <th scope="col">Other Allownces</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let sal of salary">
+                            <tr>
+                                <td>{{sal.departmentId}}</td>
+                                <td>{{sal.designationId}}</td>
+                                <td>{{sal.basicSalary}}</td>
+                                <td>{{sal.benefits}}</td>
+                                <td>{{sal.bonus}}</td>
+                                <td>{{sal.otherAllowance}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -6,7 +6,7 @@ export interface Employee {
     email: string;
     username: string;
     password: string;
-    mobilenumber: string;
+    mobileNumber: string;
     addressLine1: string;
     addressLine2: string;
     city: string;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/services/employee.service';
 import { EmployeeStoreService } from 'src/services/employee-store.service';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -16,10 +17,11 @@ export class NavbarComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService,
     private employeeStoreService: EmployeeStoreService,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.employeeService.authSubject.subscribe(
+    this.employeeService.authStatus.subscribe(
       (res) => {
         this.logged = true;
       });
@@ -38,8 +40,13 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    this.employeeService.logout();
-    this.messageService.add({ severity: 'success', summary: 'Logout', detail: 'Sign Out Success' });
-    this.logged = false;
+    localStorage.clear();
+    this.employeeService.validateAuth(false);
+    this.employeeService.authStatus.subscribe(
+      (res)=>{
+        this.logged = false;
+        this.router.navigate(['/login']);
+        this.messageService.add({ severity: 'success', summary: 'Logout', detail: 'Sign Out Success' });
+      });
   }
 }

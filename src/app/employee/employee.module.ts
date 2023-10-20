@@ -15,12 +15,19 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AllemployeesComponent } from './allemployees/allemployees.component';
+import { DdsComponent } from './dds/dds.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { AddemployeeComponent } from './addemployee/addemployee.component';
+import { ViewemployeeComponent } from './allemployees/viewemployee/viewemployee.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     LoginComponent,
-    AllemployeesComponent
+    AllemployeesComponent,
+    DdsComponent,
+    AddemployeeComponent,
+    ViewemployeeComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +43,8 @@ import { AllemployeesComponent } from './allemployees/allemployees.component';
     MatSelectModule,
     ToastModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTooltipModule
   ],
 })
 export class EmployeeModule { }

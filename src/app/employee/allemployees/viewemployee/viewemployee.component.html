@@ -1,0 +1,86 @@
+<section class="sec1">
+    <div class="container">
+        <h1>Employee Details</h1>
+        <div class="row mt-5">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 text-center mb-5">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-dark table-hover">
+                        <tbody *ngFor="let emp of empdata">
+                            <tr>
+                                <td>First Name</td>
+                                <td>{{emp.firstName}}</td>
+                            </tr>
+                            <tr>
+                                <td>Last Name</td>
+                                <td>{{emp.lastName}}</td>
+                            </tr>
+                            <tr>
+                                <td>Date of Birth</td>
+                                <td>{{emp.dateOfBirth}}</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>{{emp.email}}</td>
+                            </tr>
+                            <tr>
+                                <td>Username</td>
+                                <td>{{emp.username}}</td>
+                            </tr>
+                            <tr>
+                                <td>Mobile Number</td>
+                                <td>{{emp.mobileNumber}}</td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td>{{emp.addressLine1}}<br>
+                                    {{emp.addressLine2}}</td>
+                            </tr>
+                            <tr>
+                                <td>City</td>
+                                <td>{{emp.city}}</td>
+                            </tr>
+                            <tr>
+                                <td>State</td>
+                                <td>{{emp.state}}</td>
+                            </tr>
+                            <tr>
+                                <td>Zip Code</td>
+                                <td>{{emp.zipCode}}</td>
+                            </tr>
+                            <tr>
+                                <td>Hire Date</td>
+                                <td>{{emp.hireDate}}</td>
+                            </tr>
+                            <tr>
+                                <td>Department</td>
+                                <td>{{emp.departmentname}}</td>
+                            </tr>
+                            <tr>
+                                <td>Designation</td>
+                                <td>{{emp.designationName}}</td>
+                            </tr>
+                            <tr>
+                                <td>Basic Salary</td>
+                                <td>{{emp.basicSalary}}</td>
+                            </tr>
+                            <tr>
+                                <td>Bonus</td>
+                                <td>{{emp.bonus}}</td>
+                            </tr>
+                            <tr>
+                                <td>Benefits</td>
+                                <td>{{emp.benefits}}</td>
+                            </tr>
+                            <tr>
+                                <td>Other Allowances</td>
+                                <td>{{emp.otherAllowance}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</section>

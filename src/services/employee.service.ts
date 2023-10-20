@@ -5,7 +5,7 @@ import { Employee } from 'src/models/employee';
 import { Response } from 'src/models/employee';
 import { Login } from 'src/models/login';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { MessageService } from 'primeng/api';
 import { EmployeeStoreService } from './employee-store.service';
@@ -31,25 +31,31 @@ export class EmployeeService {
     localStorage.setItem('username', username);
   }
 
-  getToken(): string | null {
-    return localStorage.getItem('token');
+  getToken(): boolean {
+    const token = localStorage.getItem('token');
+    if (token) {
+      return true;
+    }
+    return false
   }
 
   decodeToken() {
     const jwtHelper = new JwtHelperService();
-    const token = this.getToken()!;
+    const token = localStorage.getItem('token')!;
     return jwtHelper.decodeToken(token);
   }
 
   validateUser(employee: Employee): void {
-    this.http.post<Response>(this.employeeapi + '/GetEmployees', employee).subscribe(
+    this.http.post<Response>(this.loginapi + '/UserLogin', employee).subscribe(
       {
         next: (res => {
           this.setToken(res.token, employee.username);
           this.validateAuth(true);
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Login Success' });
           const tokenPayload = this.decodeToken();
           this.employeeStoreService.setFullname(tokenPayload.unique_name);
           this.employeeStoreService.setRoleForStore(tokenPayload.role);
+          setTimeout(() => { this.router.navigate(['/']) }, 1000);
         }),
         error: (err => {
           this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Employee Not Found' });
@@ -73,20 +79,22 @@ export class EmployeeService {
     return !!localStorage.getItem('token');
   }
 
-  public authSubject = new Subject<boolean>();
-
+  public authSubject = new BehaviorSubject<boolean>(this.getToken());
+  authStatus = this.authSubject.asObservable();
   validateAuth(state: boolean) {
     this.authSubject.next(state);
   }
 
-  logout() {
-    localStorage.clear();
-    this.router.navigate(['/']);
-    this.validateAuth(false);
-  }
-
   getEmployees() {
     return this.http.get<Employee[]>(this.employeeapi + '/' + 'GetEmployees');
+  }
+
+  getEmployeeById(id: number) {
+    return this.http.get<Employee[]>(this.employeeapi + '/' + 'GetEmployeeById?Id=' + id);
+  }
+
+  postEmployee(newemployee: Employee) {
+    return this.http.post<Employee[]>(this.employeeapi + '/' + 'CreateEmployee', newemployee);
   }
 
 }
