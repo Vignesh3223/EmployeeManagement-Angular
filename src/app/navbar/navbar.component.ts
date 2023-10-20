@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.employeeService.authStatus.subscribe(
       (res) => {
-        this.logged = true;
+        this.logged = res;
       });
 
     this.employeeStoreService.getFullName().subscribe(
@@ -40,13 +40,14 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    localStorage.clear();
     this.employeeService.validateAuth(false);
     this.employeeService.authStatus.subscribe(
       (res)=>{
-        this.logged = false;
-        this.router.navigate(['/login']);
+        this.logged = res;
+        console.log(this.logged);
         this.messageService.add({ severity: 'success', summary: 'Logout', detail: 'Sign Out Success' });
       });
+      this.router.navigate(['login']);
+      localStorage.clear();
   }
 }

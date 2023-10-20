@@ -19,25 +19,26 @@
                             <a class="nav-link" routerLink='/allemployees'>Employees</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/addemployee">Add Employee</a>
+                            <a class="nav-link" routerLink='/addemployee'>Add Employee</a>
                         </li>
                     </div>
                     <div *ngIf="roleName=='Employee'">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">View Profile</a>
+                            <a class="nav-link" routerLink="#">View Profile</a>
                         </li>
                     </div>
                 </div>
             </ul>
             <form>
+                
                 <div *ngIf="!logged">
-                    <button mat-raised-button color="primary" routerLink="/login">Login
+                    <button type="button" mat-raised-button color="primary" routerLink="login">Login
                         <i class="pi pi-sign-in"></i></button>
                 </div>
                 <div class="d-flex" *ngIf="logged">
                     <h2 class="me-3"><i class="fa-solid fa-user-tie fa-lg" style="color: #000000;"></i>
                         {{fullName}}</h2>
-                    <button mat-raised-button color="warn" (click)="logout()">Logout
+                    <button type="button" mat-raised-button color="warn" (click)="logout()">Logout
                         <i class="pi pi-sign-out"></i></button>
                 </div>
             </form>
