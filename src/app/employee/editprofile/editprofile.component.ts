@@ -3,26 +3,39 @@ import { EmployeeService } from 'src/services/employee.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { Department } from 'src/models/department';
-import { DepartmentService } from 'src/services/department.service';
-import { DesignationService } from 'src/services/designation.service';
-import { Designation } from 'src/models/designation';
+import { Employee } from 'src/models/employee';
 
 @Component({
-  selector: 'app-addemployee',
-  templateUrl: './addemployee.component.html',
-  styleUrls: ['./addemployee.component.css']
+  selector: 'app-editprofile',
+  templateUrl: './editprofile.component.html',
+  styleUrls: ['./editprofile.component.css']
 })
-export class AddemployeeComponent implements OnInit {
+export class EditprofileComponent implements OnInit {
 
   hide = true;
 
-  departments: Department | any;
-  designation: Designation | any;
-  selectedDepartment: Department | null = null;
-  selectedDesignation: Designation | null = null;
+  userdata: Employee = {
+    id: 0,
+    firstName: '',
+    lastName: '',
+    dateOfBirth: new Date,
+    email: '',
+    username: '',
+    password: '',
+    mobileNumber: '',
+    addressLine1: '',
+    addressLine2: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    hireDate: new Date,
+    isActive: false,
+    departmentId: 0,
+    designationId: 0
+  }
 
-  NewEmployeeForm: FormGroup | any;
+  EditForm: FormGroup | any;
+  id: FormControl | any;
   firstName: FormControl | any;
   lastName: FormControl | any;
   dateOfBirth: FormControl | any;
@@ -36,6 +49,7 @@ export class AddemployeeComponent implements OnInit {
   state: FormControl | any;
   zipCode: FormControl | any;
   hireDate: FormControl | any;
+  isActive: FormControl | any;
   departmentId: FormControl | any;
   designationId: FormControl | any;
 
@@ -43,11 +57,16 @@ export class AddemployeeComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService,
     private router: Router,
-    private messageService: MessageService,
-    private departmentService: DepartmentService,
-    private designationService: DesignationService) { }
+    private messageService: MessageService) { }
 
   ngOnInit(): void {
+    const loggedUser = this.employeeService.getLoggedInUserId();
+    this.employeeService.getEmployeeById(loggedUser).subscribe(
+      (res) => {
+        this.userdata = res
+      });
+
+    this.id = new FormControl('');
     this.firstName = new FormControl('',
       [
         Validators.required,
@@ -97,10 +116,12 @@ export class AddemployeeComponent implements OnInit {
         Validators.pattern('[0-9]*')
       ]);
     this.hireDate = new FormControl('', [Validators.required]);
+    this.isActive = new FormControl('', [Validators.required]);
     this.departmentId = new FormControl('', [Validators.required]);
     this.designationId = new FormControl('', [Validators.required]);
 
-    this.NewEmployeeForm = new FormGroup({
+    this.EditForm = new FormGroup({
+      id: this.id,
       firstName: this.firstName,
       lastName: this.lastName,
       dateOfBirth: this.dateOfBirth,
@@ -114,40 +135,32 @@ export class AddemployeeComponent implements OnInit {
       state: this.state,
       zipCode: this.zipCode,
       hireDate: this.hireDate,
+      isActive: this.isActive,
       departmentId: this.departmentId,
       designationId: this.designationId
     });
-
-    this.departmentService.getDepartment().subscribe(
-      (res) => {
-        this.departments = res;
-      });
-
-    this.designationService.getDesignation().subscribe(
-      (res) => {
-        this.designation = res;
-      });
   }
 
   showSuccess() {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Employee Added Successfully' });
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Profile Updated Successfully' });
   }
 
   showError() {
     this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Please fill in all the details' });
   }
 
-  onPost() {
+  onEdit(id: number) {
+    console.log(this.EditForm.value);
     this.submitted = true;
-    if (this.NewEmployeeForm.invalid) {
+    if (this.EditForm.invalid) {
       this.showError();
     }
     else {
-      this.employeeService.postEmployee(this.NewEmployeeForm.value).subscribe({
+      this.employeeService.editEmployee(id, this.EditForm.value).subscribe({
         next: (res) => {
           console.log(res);
           this.showSuccess();
-          setTimeout(() => { this.router.navigate(['/allemployees']) }, 500);
+          setTimeout(() => { this.router.navigate(['/']) }, 1000);
         },
         error: (err) => {
           console.log(err);

@@ -6,6 +6,8 @@ import { AllemployeesComponent } from './allemployees/allemployees.component';
 import { DdsComponent } from './dds/dds.component';
 import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { ViewemployeeComponent } from './allemployees/viewemployee/viewemployee.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+import { DeleteemployeeComponent } from './allemployees/deleteemployee/deleteemployee.component';
 import { authGuard } from 'src/guard/auth.guard';
 
 const routes: Routes = [
@@ -26,6 +28,12 @@ const routes: Routes = [
   },
   {
     path: "viewemployee/:id", component: ViewemployeeComponent, canActivate: [authGuard]
+  },
+  {
+    path: "editprofile", component: EditprofileComponent, canActivate: [authGuard]
+  },
+  {
+    path: "deleteemployee/:id", component: DeleteemployeeComponent, canActivate: [authGuard]
   }
 ];
 

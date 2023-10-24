@@ -40,14 +40,13 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
+    localStorage.clear();
     this.employeeService.validateAuth(false);
+    this.messageService.add({ severity: 'success', summary: 'Logout', detail: 'Sign Out Success' });
     this.employeeService.authStatus.subscribe(
-      (res)=>{
+      (res) => {
         this.logged = res;
-        console.log(this.logged);
-        this.messageService.add({ severity: 'success', summary: 'Logout', detail: 'Sign Out Success' });
+        setTimeout(() => { this.router.navigate(['login']) }, 500);
       });
-      this.router.navigate(['login']);
-      localStorage.clear();
   }
 }

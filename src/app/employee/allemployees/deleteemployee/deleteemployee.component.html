@@ -1,0 +1,146 @@
+<section class="sec1">
+    <div class="container">
+        <h1 class="text-center">Delete Employee</h1>
+        <div class="row text-center mt-4">
+            <form [formGroup]="DeleteForm" novalidate>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>First Name</mat-label>
+                                <input type="text" matInput [(ngModel)]="userdata.firstName" formControlName="firstName"
+                                    readonly>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Date of Birth</mat-label>
+                                <input type="text" matInput [(ngModel)]="userdata.dateOfBirth"
+                                    formControlName="dateOfBirth" readonly>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Username</mat-label>
+                                <input type="text" matInput [(ngModel)]="userdata.username" formControlName="username"
+                                    readonly>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Department Id</mat-label>
+                                <input matInput formControlName="departmentId" [(ngModel)]="userdata.departmentId"
+                                    readonly>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Address Line1</mat-label>
+                                <input type="text" matInput [(ngModel)]="userdata.addressLine1"
+                                    formControlName="addressLine1" readonly>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>City</mat-label>
+                                <input type="text" matInput [(ngModel)]="userdata.city" formControlName="city" readonly>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Zip Code</mat-label>
+                                <input type="text" matInput [(ngModel)]="userdata.zipCode" formControlName="zipCode"
+                                    readonly>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Hire Date</mat-label>
+                                <input type="text" matInput formControlName="hireDate" [(ngModel)]="userdata.hireDate"
+                                    readonly>
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Last Name</mat-label>
+                                <input type="text" matInput [(ngModel)]="userdata.lastName" placeholder="Enter Lastname"
+                                    formControlName="lastName" readonly>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Email</mat-label>
+                                <input type="email" matInput [(ngModel)]="userdata.email" formControlName="email"
+                                    readonly>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Mobile Number</mat-label>
+                                <input type="text" matInput [(ngModel)]="userdata.mobileNumber"
+                                    formControlName="mobileNumber" readonly>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Designation Id</mat-label>
+                                <input matInput formControlName="designationId" [(ngModel)]="userdata.designationId"
+                                    readonly />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Address Line2</mat-label>
+                                <input type="text" matInput [(ngModel)]="userdata.addressLine2"
+                                    formControlName="addressLine2" readonly>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>State</mat-label>
+                                <input type="text" matInput [(ngModel)]="userdata.state" formControlName="state"
+                                    readonly>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Employee Id</mat-label>
+                                <input type="text" matInput [(ngModel)]="userdata.id" formControlName="id" readonly>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Active Status</mat-label>
+                                <input matInput formControlName="isActive" [(ngModel)]="userdata.isActive" readonly />
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group mt-4 text-center">
+                    <p-toast position="top-right"></p-toast>
+                    <button mat-icon mat-raised-button color="warn" (click)="onDelete(DeleteForm.value.id)">
+                        Delete<mat-icon>delete</mat-icon></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

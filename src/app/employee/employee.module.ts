@@ -16,9 +16,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AllemployeesComponent } from './allemployees/allemployees.component';
 import { DdsComponent } from './dds/dds.component';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { ViewemployeeComponent } from './allemployees/viewemployee/viewemployee.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+import { DeleteemployeeComponent } from './allemployees/deleteemployee/deleteemployee.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ViewemployeeComponent } from './allemployees/viewemployee/viewemployee.
     AllemployeesComponent,
     DdsComponent,
     AddemployeeComponent,
-    ViewemployeeComponent
+    ViewemployeeComponent,
+    EditprofileComponent,
+    DeleteemployeeComponent
   ],
   imports: [
     CommonModule,

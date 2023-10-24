@@ -14,7 +14,8 @@ export class AllemployeesComponent implements OnInit {
 
   empId!: number;
 
-  constructor(private employeeservice: EmployeeService, private router: Router) { }
+  constructor(private employeeservice: EmployeeService,
+    private router: Router,) { }
 
   ngOnInit(): void {
     this.employeeservice.getEmployees().subscribe(
@@ -26,5 +27,10 @@ export class AllemployeesComponent implements OnInit {
   viewEmployee(id: number) {
     this.empId = id;
     this.router.navigate(['viewemployee/' + id]);
+  }
+
+  deleteEmployee(id:number){
+    this.empId = id;
+    this.router.navigate(['deleteemployee/' + id]);
   }
 }
