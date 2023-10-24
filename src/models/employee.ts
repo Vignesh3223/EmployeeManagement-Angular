@@ -16,6 +16,7 @@ export interface Employee {
     isActive: boolean;
     departmentId: number;
     designationId: number;
+    createdDate: Date;
 }
 
 export interface Response {

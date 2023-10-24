@@ -31,7 +31,8 @@ export class DeleteemployeeComponent implements OnInit {
     hireDate: new Date,
     isActive: false,
     departmentId: 0,
-    designationId: 0
+    designationId: 0,
+    createdDate: new Date
   }
 
   DeleteForm: FormGroup | any;
@@ -52,6 +53,7 @@ export class DeleteemployeeComponent implements OnInit {
   isActive: FormControl | any;
   departmentId: FormControl | any;
   designationId: FormControl | any;
+  createdDate: FormControl | any;
 
   submitted = false;
 
@@ -85,6 +87,7 @@ export class DeleteemployeeComponent implements OnInit {
     this.isActive = new FormControl('');
     this.departmentId = new FormControl('');
     this.designationId = new FormControl('');
+    this.createdDate = new FormControl('');
 
     this.DeleteForm = new FormGroup({
       id: this.id,
@@ -103,7 +106,8 @@ export class DeleteemployeeComponent implements OnInit {
       hireDate: this.hireDate,
       isActive: this.isActive,
       departmentId: this.departmentId,
-      designationId: this.designationId
+      designationId: this.designationId,
+      createdDate: this.createdDate
     });
   }
 
