@@ -149,8 +149,8 @@ export class EditprofileComponent implements OnInit {
     this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Please fill in all the details' });
   }
 
-  onEdit(id: number) {
-    console.log(this.EditForm.value);
+  onEdit(id: number,someform:any) {
+    console.log(someform.value);
     this.submitted = true;
     if (this.EditForm.invalid) {
       this.showError();
