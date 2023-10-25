@@ -21,6 +21,7 @@ import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { ViewemployeeComponent } from './allemployees/viewemployee/viewemployee.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DeleteemployeeComponent } from './allemployees/deleteemployee/deleteemployee.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -50,5 +51,6 @@ import { DeleteemployeeComponent } from './allemployees/deleteemployee/deleteemp
     MatNativeDateModule,
     MatTooltipModule
   ],
+  providers:[DatePipe]
 })
 export class EmployeeModule { }

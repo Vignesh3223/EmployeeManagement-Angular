@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Employee } from 'src/models/employee';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-editprofile',
@@ -18,7 +19,7 @@ export class EditprofileComponent implements OnInit {
     id: 0,
     firstName: '',
     lastName: '',
-    dateOfBirth: new Date,
+    dateOfBirth: new Date(),
     email: '',
     username: '',
     password: '',
@@ -59,7 +60,8 @@ export class EditprofileComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService,
     private router: Router,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private datePipe:DatePipe) { }
 
   ngOnInit(): void {
     const loggedUser = this.employeeService.getLoggedInUserId();
@@ -178,7 +180,10 @@ export class EditprofileComponent implements OnInit {
   }
 
   onEdit(id: number, someform: any) {
-    console.log(someform.value);
+    var formattedDate = this.datePipe.transform(this.EditForm.value.dateOfBirth, 'yyyy-MM-dd');
+    this.EditForm.patchValue({dateOfBirth: formattedDate});
+    console.log(someform.value.dateOfBirth);
+    console.log(typeof(someform.value.dateOfBirth));
     this.submitted = true;
     if (this.EditForm.invalid) {
       this.showError();
