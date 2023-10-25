@@ -3,30 +3,26 @@
         <img src="/assets/images/logo-white.png" alt="logo" class="img-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fa-solid fa-burger fa-xl" style="color: #ffffff;"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" routerLink=''>Home</a>
                 </li>
-                <div class="d-flex" *ngIf="logged">
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink='/dds'>DDS Info</a>
-                    </li>
-                    <div *ngIf="roleName=='Admin'">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Employee Data
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" routerLink='/allemployees'>Employees</a></li>
-                                <li><a class="dropdown-item" routerLink='/addemployee'>Add Employee</a></li>
-                            </ul>
-                        </li>
-                    </div>
-                </div>
+                <li class="nav-item" *ngIf="logged">
+                    <a class="nav-link" routerLink='/dds'>DDS Info</a>
+                </li>
+                <li class="nav-item dropdown" *ngIf="logged && roleName=='Admin'">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Employee Data
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink='/allemployees'>Employees</a></li>
+                        <li><a class="dropdown-item" routerLink='/addemployee'>Add Employee</a></li>
+                    </ul>
+                </li>
             </ul>
             <form>
                 <div *ngIf="!logged">
