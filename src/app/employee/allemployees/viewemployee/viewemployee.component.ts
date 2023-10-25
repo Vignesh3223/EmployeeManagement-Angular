@@ -48,7 +48,6 @@ export class ViewemployeeComponent implements OnInit {
                 emp.otherAllowance = matchingsalary.otherAllowance;
               }
             });
-            console.log(this.empdata);
           });
         });
       });

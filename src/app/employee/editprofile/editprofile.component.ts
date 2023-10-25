@@ -32,7 +32,7 @@ export class EditprofileComponent implements OnInit {
     isActive: false,
     departmentId: 0,
     designationId: 0,
-    createdDate : new Date
+    createdDate: new Date
   }
 
   EditForm: FormGroup | any;
@@ -53,7 +53,7 @@ export class EditprofileComponent implements OnInit {
   isActive: FormControl | any;
   departmentId: FormControl | any;
   designationId: FormControl | any;
-  createdDate : FormControl | any;
+  createdDate: FormControl | any;
 
   submitted = false;
 
@@ -65,7 +65,8 @@ export class EditprofileComponent implements OnInit {
     const loggedUser = this.employeeService.getLoggedInUserId();
     this.employeeService.getEmployeeById(loggedUser).subscribe(
       (res) => {
-        this.userdata = res
+        this.userdata = res;
+        this.setFormValues();
       });
 
     this.id = new FormControl('');
@@ -141,7 +142,30 @@ export class EditprofileComponent implements OnInit {
       isActive: this.isActive,
       departmentId: this.departmentId,
       designationId: this.designationId,
-      createdDate:this.createdDate
+      createdDate: this.createdDate
+    });
+  }
+
+  setFormValues(): void {
+    this.EditForm.patchValue({
+      id: this.userdata.id,
+      firstName: this.userdata.firstName,
+      lastName: this.userdata.lastName,
+      dateOfBirth: this.userdata.dateOfBirth,
+      email: this.userdata.email,
+      username: this.userdata.username,
+      password: this.userdata.password,
+      mobileNumber: this.userdata.mobileNumber,
+      addressLine1: this.userdata.addressLine1,
+      addressLine2: this.userdata.addressLine2,
+      city: this.userdata.city,
+      state: this.userdata.state,
+      zipCode: this.userdata.zipCode,
+      hireDate: this.userdata.hireDate,
+      isActive: this.userdata.isActive,
+      departmentId: this.userdata.departmentId,
+      designationId: this.userdata.designationId,
+      createdDate: this.userdata.createdDate
     });
   }
 
@@ -153,8 +177,7 @@ export class EditprofileComponent implements OnInit {
     this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Please fill in all the details' });
   }
 
-  onEdit(id: number,someform:any) {
-    console.log(someform.value);
+  onEdit(id: number, someform: any) {
     this.submitted = true;
     if (this.EditForm.invalid) {
       this.showError();
@@ -162,7 +185,6 @@ export class EditprofileComponent implements OnInit {
     else {
       this.employeeService.editEmployee(id, this.EditForm.value).subscribe({
         next: (res) => {
-          console.log(res);
           this.showSuccess();
           setTimeout(() => { this.router.navigate(['/']) }, 1000);
         },

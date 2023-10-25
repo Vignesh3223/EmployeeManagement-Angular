@@ -67,7 +67,8 @@ export class DeleteemployeeComponent implements OnInit {
 
     this.employeeService.getEmployeeById(this.empId).subscribe(
       (res) => {
-        this.userdata = res
+        this.userdata = res;
+        this.setFormValues();
       });
 
     this.id = new FormControl('');
@@ -111,6 +112,29 @@ export class DeleteemployeeComponent implements OnInit {
     });
   }
 
+  setFormValues(): void {
+    this.DeleteForm.patchValue({
+        id: this.userdata.id,
+        firstName: this.userdata.firstName,
+        lastName: this.userdata.lastName,
+        dateOfBirth: this.userdata.dateOfBirth,
+        email: this.userdata.email,
+        username: this.userdata.username,
+        password: this.userdata.password,
+        mobileNumber: this.userdata.mobileNumber,
+        addressLine1: this.userdata.addressLine1,
+        addressLine2: this.userdata.addressLine2,
+        city: this.userdata.city,
+        state: this.userdata.state,
+        zipCode: this.userdata.zipCode,
+        hireDate: this.userdata.hireDate,
+        isActive: this.userdata.isActive,
+        departmentId: this.userdata.departmentId,
+        designationId: this.userdata.designationId,
+        createdDate: this.userdata.createdDate
+    });
+}
+
   showSuccess() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Record Deleted Successfully' });
   }
@@ -118,7 +142,6 @@ export class DeleteemployeeComponent implements OnInit {
   onDelete(id: number) {
     this.employeeService.deleteEmployee(id, this.DeleteForm.value).subscribe(
       (res) => {
-        console.log(res);
         this.showSuccess();
         setTimeout(() => { this.router.navigate(['/allemployees']) }, 500);
       });

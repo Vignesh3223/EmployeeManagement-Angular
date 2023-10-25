@@ -145,7 +145,6 @@ export class AddemployeeComponent implements OnInit {
     else {
       this.employeeService.postEmployee(this.NewEmployeeForm.value).subscribe({
         next: (res) => {
-          console.log(res);
           this.showSuccess();
           setTimeout(() => { this.router.navigate(['/allemployees']) }, 500);
         },

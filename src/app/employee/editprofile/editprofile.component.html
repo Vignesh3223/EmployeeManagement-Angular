@@ -9,8 +9,7 @@
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>First Name</mat-label>
-                                <input type="text" matInput [(ngModel)]="userdata.firstName"
-                                    placeholder="Enter Firstname" formControlName="firstName"
+                                <input type="text" matInput placeholder="Enter Firstname" formControlName="firstName"
                                     [ngClass]="{'is-invalid':firstName.errors && (firstName.touched || firstName.dirty)}" />
                                 <mat-error *ngIf="firstName.errors?.required">Required Field</mat-error>
                                 <mat-error *ngIf="firstName.errors?.pattern">Name must contain only
@@ -21,8 +20,7 @@
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Date of Birth</mat-label>
-                                <input matInput [matDatepicker]="picker1" [(ngModel)]="userdata.dateOfBirth"
-                                    formControlName="dateOfBirth"
+                                <input matInput [matDatepicker]="picker1" formControlName="dateOfBirth"
                                     [ngClass]="{'is-invalid':dateOfBirth.errors && (dateOfBirth.touched || dateOfBirth.dirty)}">
                                 <mat-hint>MM/DD/YYYY</mat-hint>
                                 <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -34,8 +32,7 @@
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Username</mat-label>
-                                <input type="text" matInput [(ngModel)]="userdata.username" placeholder="Enter Username"
-                                    formControlName="username"
+                                <input type="text" matInput placeholder="Enter Username" formControlName="username"
                                     [ngClass]="{'is-invalid':username.errors && (username.touched || username.dirty)}" />
                                 <mat-error *ngIf="username.errors?.required">Required Field</mat-error>
                                 <mat-error *ngIf="username.errors?.minLength">Name must contain atleast 4
@@ -47,7 +44,7 @@
                         <div class="form-group mb-3">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Address Line1</mat-label>
-                                <textarea matInput formControlName="addressLine1" [(ngModel)]="userdata.addressLine1"
+                                <textarea matInput formControlName="addressLine1"
                                     [ngClass]="{'is-invalid':addressLine1.errors && (addressLine1.touched || addressLine1.dirty)}"></textarea>
                                 <mat-error *ngIf="addressLine1.errors?.required">Required Field</mat-error>
                             </mat-form-field>
@@ -56,8 +53,7 @@
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>City</mat-label>
-                                <input type="text" matInput [(ngModel)]="userdata.city" placeholder="Enter City"
-                                    formControlName="city"
+                                <input type="text" matInput placeholder="Enter City" formControlName="city"
                                     [ngClass]="{'is-invalid':city.errors && (city.touched || city.dirty)}" />
                                 <mat-error *ngIf="city.errors?.required">Required Field</mat-error>
                                 <mat-error *ngIf="city.errors?.pattern">City must contain only alphabets</mat-error>
@@ -67,8 +63,7 @@
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Zip Code</mat-label>
-                                <input type="text" matInput [(ngModel)]="userdata.zipCode" placeholder="Enter zipcode"
-                                    formControlName="zipCode"
+                                <input type="text" matInput placeholder="Enter zipcode" formControlName="zipCode"
                                     [ngClass]="{'is-invalid':zipCode.errors && (zipCode.touched || zipCode.dirty)}" />
                                 <mat-error *ngIf="zipCode.errors?.required">Required Field</mat-error>
                                 <mat-error *ngIf="zipCode.errors?.maxLength">Zipcode must contain only 6
@@ -80,8 +75,7 @@
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Department Id</mat-label>
-                                <input matInput formControlName="departmentId" [(ngModel)]="userdata.departmentId"
-                                    readonly />
+                                <input matInput formControlName="departmentId" readonly />
                             </mat-form-field>
                         </div>
 
@@ -89,7 +83,6 @@
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Hire Date</mat-label>
                                 <input matInput [matDatepicker]="picker2" formControlName="hireDate"
-                                    [(ngModel)]="userdata.hireDate"
                                     [ngClass]="{'is-invalid':hireDate.errors && (hireDate.touched || hireDate.dirty)}"
                                     readonly>
                                 <mat-hint>MM/DD/YYYY</mat-hint>
@@ -102,8 +95,7 @@
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Active Status</mat-label>
-                                <input matInput formControlName="isActive" [(ngModel)]="userdata.isActive"
-                                    readonly />
+                                <input matInput formControlName="isActive" readonly />
                             </mat-form-field>
                         </div>
 
@@ -112,8 +104,7 @@
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Last Name</mat-label>
-                                <input type="text" matInput [(ngModel)]="userdata.lastName" placeholder="Enter Lastname"
-                                    formControlName="lastName"
+                                <input type="text" matInput placeholder="Enter Lastname" formControlName="lastName"
                                     [ngClass]="{'is-invalid':lastName.errors && (lastName.touched || lastName.dirty)}" />
                                 <mat-error *ngIf="lastName.errors?.required">Required Field</mat-error>
                                 <mat-error *ngIf="lastName.errors?.pattern">Name must contain only alphabets</mat-error>
@@ -123,8 +114,7 @@
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Email</mat-label>
-                                <input type="email" matInput [(ngModel)]="userdata.email" placeholder="Enter Email"
-                                    formControlName="email"
+                                <input type="email" matInput placeholder="Enter Email" formControlName="email"
                                     [ngClass]="{'is-invalid':email.errors && (email.touched || email.dirty)}" />
                                 <mat-error *ngIf="email.errors?.required">Required Field</mat-error>
                                 <mat-error *ngIf="email.errors?.email && email.errors?.pattern">Enter a Valid
@@ -136,7 +126,7 @@
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Enter Password</mat-label>
                                 <input type="password" matInput [type]="hide ? 'password' : 'text'"
-                                    placeholder="Password" formControlName="password" [(ngModel)]="userdata.password"
+                                    placeholder="Password" formControlName="password"
                                     [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty)}" />
                                 <button mat-icon-button matSuffix (click)="hide = !hide"
                                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -150,7 +140,7 @@
                         <div class="form-group mb-3">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Address Line2</mat-label>
-                                <textarea matInput formControlName="addressLine2" [(ngModel)]="userdata.addressLine2"
+                                <textarea matInput formControlName="addressLine2"
                                     [ngClass]="{'is-invalid':addressLine2.errors && (addressLine2.touched || addressLine2.dirty)}"></textarea>
                                 <mat-error *ngIf="addressLine2.errors?.required">Required Field</mat-error>
                             </mat-form-field>
@@ -159,7 +149,7 @@
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>State</mat-label>
-                                <mat-select formControlName="state" [(ngModel)]="userdata.state"
+                                <mat-select formControlName="state"
                                     [ngClass]="{'is-invalid':state.errors && (state.touched || state.dirty)}">
                                     <mat-option value="Andhra Pradesh">Andhra Pradesh</mat-option>
                                     <mat-option value="Andaman and Nicobar Islands">Andaman and Nicobar
@@ -207,7 +197,7 @@
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Mobile Number</mat-label>
                                 <input type="text" matInput placeholder="Enter Mobile number"
-                                    [(ngModel)]="userdata.mobileNumber" formControlName="mobileNumber"
+                                    formControlName="mobileNumber"
                                     [ngClass]="{'is-invalid':mobileNumber.errors && (mobileNumber.touched || mobileNumber.dirty)}" />
                                 <mat-error *ngIf="mobileNumber.errors?.required">Required Field</mat-error>
                                 <mat-error *ngIf="mobileNumber.errors?.maxLength">Mobile number must contain only 10
@@ -220,22 +210,14 @@
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Designation Id</mat-label>
-                                <input matInput formControlName="designationId" [(ngModel)]="userdata.designationId"
-                                    readonly />
+                                <input matInput formControlName="designationId" readonly />
                             </mat-form-field>
                         </div>
 
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Employee Id</mat-label>
-                                <input type="text" matInput [(ngModel)]="userdata.id" formControlName="id" readonly>
-                            </mat-form-field>
-                        </div>
-
-                        <div class="form-group mb-2">
-                            <mat-form-field appearance="outline" class="example-full-width">
-                                <mat-label>Created Date</mat-label>
-                                <input type="text" matInput [(ngModel)]="userdata.createdDate" formControlName="createdDate" readonly>
+                                <input type="text" matInput formControlName="id" readonly>
                             </mat-form-field>
                         </div>
                     </div>
