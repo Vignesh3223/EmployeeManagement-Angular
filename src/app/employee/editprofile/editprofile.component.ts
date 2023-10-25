@@ -182,8 +182,6 @@ export class EditprofileComponent implements OnInit {
   onEdit(id: number, someform: any) {
     var formattedDate = this.datePipe.transform(this.EditForm.value.dateOfBirth, 'yyyy-MM-dd');
     this.EditForm.patchValue({dateOfBirth: formattedDate});
-    console.log(someform.value.dateOfBirth);
-    console.log(typeof(someform.value.dateOfBirth));
     this.submitted = true;
     if (this.EditForm.invalid) {
       this.showError();

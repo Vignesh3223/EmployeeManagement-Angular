@@ -22,6 +22,9 @@ import { ViewemployeeComponent } from './allemployees/viewemployee/viewemployee.
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DeleteemployeeComponent } from './allemployees/deleteemployee/deleteemployee.component';
 import { DatePipe } from '@angular/common';
+import { UpdatestatusComponent } from './updatestatus/updatestatus.component';
+import { OnlineemployeesComponent } from './onlineemployees/onlineemployees.component';
+import { OfflineemployeesComponent } from './offlineemployees/offlineemployees.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { DatePipe } from '@angular/common';
     AddemployeeComponent,
     ViewemployeeComponent,
     EditprofileComponent,
-    DeleteemployeeComponent
+    DeleteemployeeComponent,
+    UpdatestatusComponent,
+    OnlineemployeesComponent,
+    OfflineemployeesComponent
   ],
   imports: [
     CommonModule,

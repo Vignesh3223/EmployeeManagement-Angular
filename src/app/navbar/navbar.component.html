@@ -13,6 +13,9 @@
                 <li class="nav-item" *ngIf="logged">
                     <a class="nav-link" routerLink='/dds'>DDS Info</a>
                 </li>
+                <li class="nav-item" *ngIf="logged">
+                    <a class="nav-link" routerLink='/status'>Status</a>
+                </li>
                 <li class="nav-item dropdown" *ngIf="logged && roleName=='Admin'">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -21,6 +24,8 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" routerLink='/allemployees'>Employees</a></li>
                         <li><a class="dropdown-item" routerLink='/addemployee'>Add Employee</a></li>
+                        <li><a class="dropdown-item" routerLink='/online'>Online Employees</a></li>
+                        <li><a class="dropdown-item" routerLink='/offline'>Offline Employees</a></li>
                     </ul>
                 </li>
             </ul>
