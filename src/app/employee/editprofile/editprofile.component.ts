@@ -178,6 +178,7 @@ export class EditprofileComponent implements OnInit {
   }
 
   onEdit(id: number, someform: any) {
+    console.log(someform.value);
     this.submitted = true;
     if (this.EditForm.invalid) {
       this.showError();

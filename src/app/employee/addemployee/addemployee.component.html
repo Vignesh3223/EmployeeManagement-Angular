@@ -1,11 +1,10 @@
 <section class="sec1">
     <div class="container">
-        <h1>Create Employee</h1>
-        <div class="row text-center mt-5">
+        <h1 class="text-center mt-2">Create Employee</h1>
+        <div class="row text-center mt-3">
             <form [formGroup]="NewEmployeeForm" novalidate>
                 <div class="row">
-                    <div class="col-md-6">
-
+                    <div class="col-md-4">
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>First Name</mat-label>
@@ -14,97 +13,6 @@
                                 <mat-error *ngIf="firstName.errors?.required">Required Field</mat-error>
                                 <mat-error *ngIf="firstName.errors?.pattern">Name must contain only
                                     alphabets</mat-error>
-                            </mat-form-field>
-                        </div>
-
-                        <div class="form-group mb-2">
-                            <mat-form-field appearance="outline" class="example-full-width">
-                                <mat-label>Date of Birth</mat-label>
-                                <input matInput [matDatepicker]="picker1" formControlName="dateOfBirth"
-                                    [ngClass]="{'is-invalid':dateOfBirth.errors && (dateOfBirth.touched || dateOfBirth.dirty)}">
-                                <mat-hint>MM/DD/YYYY</mat-hint>
-                                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-                                <mat-datepicker #picker1></mat-datepicker>
-                                <mat-error *ngIf="dateOfBirth.errors?.required">Required Field</mat-error>
-                            </mat-form-field>
-                        </div>
-
-                        <div class="form-group mb-2">
-                            <mat-form-field appearance="outline" class="example-full-width">
-                                <mat-label>Username</mat-label>
-                                <input type="text" matInput placeholder="Enter Username" formControlName="username"
-                                    [ngClass]="{'is-invalid':username.errors && (username.touched || username.dirty)}" />
-                                <mat-error *ngIf="username.errors?.required">Required Field</mat-error>
-                                <mat-error *ngIf="username.errors?.minLength">Name must contain atleast 4
-                                    characters</mat-error>
-                                <mat-error *ngIf="username.errors?.pattern">Name must contain only alphabets</mat-error>
-                            </mat-form-field>
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <mat-form-field appearance="outline" class="example-full-width">
-                                <mat-label>Address Line1</mat-label>
-                                <textarea matInput formControlName="addressLine1"
-                                    [ngClass]="{'is-invalid':addressLine1.errors && (addressLine1.touched || addressLine1.dirty)}"></textarea>
-                                <mat-error *ngIf="addressLine1.errors?.required">Required Field</mat-error>
-                            </mat-form-field>
-                        </div>
-
-                        <div class="form-group mb-2">
-                            <mat-form-field appearance="outline" class="example-full-width">
-                                <mat-label>City</mat-label>
-                                <input type="text" matInput placeholder="Enter City" formControlName="city"
-                                    [ngClass]="{'is-invalid':city.errors && (city.touched || city.dirty)}" />
-                                <mat-error *ngIf="city.errors?.required">Required Field</mat-error>
-                                <mat-error *ngIf="city.errors?.pattern">City must contain only alphabets</mat-error>
-                            </mat-form-field>
-                        </div>
-
-                        <div class="form-group mb-2">
-                            <mat-form-field appearance="outline" class="example-full-width">
-                                <mat-label>Zip Code</mat-label>
-                                <input type="text" matInput placeholder="Enter zipcode" formControlName="zipCode"
-                                    [ngClass]="{'is-invalid':zipCode.errors && (zipCode.touched || zipCode.dirty)}" />
-                                <mat-error *ngIf="zipCode.errors?.required">Required Field</mat-error>
-                                <mat-error *ngIf="zipCode.errors?.maxLength">Zipcode must contain only 6
-                                    digits</mat-error>
-                                <mat-error *ngIf="zipCode.errors?.pattern">Zipcode must contain only numbers</mat-error>
-                            </mat-form-field>
-                        </div>
-
-                        <div class="form-group mb-2">
-                            <mat-form-field appearance="outline" class="example-full-width">
-                                <mat-label>Department</mat-label>
-                                <mat-select formControlName="departmentId" id="departmentId" [(ngModel)]="selectedDepartment"
-                                    [ngClass]="{'is-invalid':departmentId.errors && (departmentId.touched || departmentId.dirty)}">
-                                    <mat-option *ngFor="let dept of departments" [value]="dept.id">
-                                        {{ dept.departmentname }}</mat-option>
-                                </mat-select>
-                                <mat-error *ngIf="departmentId.errors?.required">Required Field</mat-error>
-                            </mat-form-field>
-                        </div>
-
-                        <div class="form-group mb-2">
-                            <mat-form-field appearance="outline" class="example-full-width">
-                                <mat-label>Hire Date</mat-label>
-                                <input matInput [matDatepicker]="picker2" formControlName="hireDate"
-                                    [ngClass]="{'is-invalid':hireDate.errors && (hireDate.touched || hireDate.dirty)}">
-                                <mat-hint>MM/DD/YYYY</mat-hint>
-                                <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-                                <mat-datepicker #picker2></mat-datepicker>
-                                <mat-error *ngIf="hireDate.errors?.required">Required Field</mat-error>
-                            </mat-form-field>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group mb-2">
-                            <mat-form-field appearance="outline" class="example-full-width">
-                                <mat-label>Last Name</mat-label>
-                                <input type="text" matInput placeholder="Enter Lastname" formControlName="lastName"
-                                    [ngClass]="{'is-invalid':lastName.errors && (lastName.touched || lastName.dirty)}" />
-                                <mat-error *ngIf="lastName.errors?.required">Required Field</mat-error>
-                                <mat-error *ngIf="lastName.errors?.pattern">Name must contain only alphabets</mat-error>
                             </mat-form-field>
                         </div>
 
@@ -121,25 +29,10 @@
 
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
-                                <mat-label>Enter Password</mat-label>
-                                <input type="password" matInput [type]="hide ? 'password' : 'text'"
-                                    placeholder="Password" formControlName="password"
-                                    [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty)}" />
-                                <button mat-icon-button matSuffix (click)="hide = !hide"
-                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                </button>
-                                <mat-error *ngIf="password.errors?.required">Required Field</mat-error>
-                                <mat-error *ngIf="password.errors?.pattern">Password must be Valid</mat-error>
-                            </mat-form-field>
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <mat-form-field appearance="outline" class="example-full-width">
-                                <mat-label>Address Line2</mat-label>
-                                <textarea matInput formControlName="addressLine2"
-                                    [ngClass]="{'is-invalid':addressLine2.errors && (addressLine2.touched || addressLine2.dirty)}"></textarea>
-                                <mat-error *ngIf="addressLine2.errors?.required">Required Field</mat-error>
+                                <mat-label>Address Line1</mat-label>
+                                <textarea matInput formControlName="addressLine1"
+                                    [ngClass]="{'is-invalid':addressLine1.errors && (addressLine1.touched || addressLine1.dirty)}"></textarea>
+                                <mat-error *ngIf="addressLine1.errors?.required">Required Field</mat-error>
                             </mat-form-field>
                         </div>
 
@@ -190,6 +83,117 @@
                             </mat-form-field>
                         </div>
 
+                        <div class="form-group">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Department</mat-label>
+                                <mat-select formControlName="departmentId" id="departmentId"
+                                    [(ngModel)]="selectedDepartment"
+                                    [ngClass]="{'is-invalid':departmentId.errors && (departmentId.touched || departmentId.dirty)}">
+                                    <mat-option *ngFor="let dept of departments" [value]="dept.id">
+                                        {{ dept.departmentname }}</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="departmentId.errors?.required">Required Field</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Last Name</mat-label>
+                                <input type="text" matInput placeholder="Enter Lastname" formControlName="lastName"
+                                    [ngClass]="{'is-invalid':lastName.errors && (lastName.touched || lastName.dirty)}" />
+                                <mat-error *ngIf="lastName.errors?.required">Required Field</mat-error>
+                                <mat-error *ngIf="lastName.errors?.pattern">Name must contain only alphabets</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Username</mat-label>
+                                <input type="text" matInput placeholder="Enter Username" formControlName="username"
+                                    [ngClass]="{'is-invalid':username.errors && (username.touched || username.dirty)}" />
+                                <mat-error *ngIf="username.errors?.required">Required Field</mat-error>
+                                <mat-error *ngIf="username.errors?.minLength">Name must contain atleast 4
+                                    characters</mat-error>
+                                <mat-error *ngIf="username.errors?.pattern">Name must contain only alphabets</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Address Line2</mat-label>
+                                <textarea matInput formControlName="addressLine2"
+                                    [ngClass]="{'is-invalid':addressLine2.errors && (addressLine2.touched || addressLine2.dirty)}"></textarea>
+                                <mat-error *ngIf="addressLine2.errors?.required">Required Field</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Zip Code</mat-label>
+                                <input type="text" matInput placeholder="Enter zipcode" formControlName="zipCode"
+                                    [ngClass]="{'is-invalid':zipCode.errors && (zipCode.touched || zipCode.dirty)}" />
+                                <mat-error *ngIf="zipCode.errors?.required">Required Field</mat-error>
+                                <mat-error *ngIf="zipCode.errors?.maxLength">Zipcode must contain only 6
+                                    digits</mat-error>
+                                <mat-error *ngIf="zipCode.errors?.pattern">Zipcode must contain only numbers</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Designation</mat-label>
+                                <mat-select formControlName="designationId" id="designationId"
+                                    [(ngModel)]="selectedDesignation"
+                                    [ngClass]="{'is-invalid':designationId.errors && (designationId.touched || designationId.dirty)}">
+                                    <mat-option *ngFor="let des of designation" [value]="des.id">
+                                        {{ des.designationName }}</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="designationId.errors?.required">Required Field</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Date of Birth</mat-label>
+                                <input matInput [matDatepicker]="picker1" formControlName="dateOfBirth"
+                                    [ngClass]="{'is-invalid':dateOfBirth.errors && (dateOfBirth.touched || dateOfBirth.dirty)}">
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                                <mat-error *ngIf="dateOfBirth.errors?.required">Required Field</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Enter Password</mat-label>
+                                <input type="password" matInput [type]="hide ? 'password' : 'text'"
+                                    placeholder="Password" formControlName="password"
+                                    [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty)}" />
+                                <button mat-icon-button matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="password.errors?.required">Required Field</mat-error>
+                                <mat-error *ngIf="password.errors?.pattern">Password must be Valid</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group mt-4 mb-3">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>City</mat-label>
+                                <input type="text" matInput placeholder="Enter City" formControlName="city"
+                                    [ngClass]="{'is-invalid':city.errors && (city.touched || city.dirty)}" />
+                                <mat-error *ngIf="city.errors?.required">Required Field</mat-error>
+                                <mat-error *ngIf="city.errors?.pattern">City must contain only alphabets</mat-error>
+                            </mat-form-field>
+                        </div>
+
                         <div class="form-group mb-2">
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <mat-label>Mobile Number</mat-label>
@@ -204,25 +208,23 @@
                             </mat-form-field>
                         </div>
 
-                        <div class="form-group mb-2">
+                        <div class="form-group">
                             <mat-form-field appearance="outline" class="example-full-width">
-                                <mat-label>Designation</mat-label>
-                                <mat-select formControlName="designationId" id="designationId" [(ngModel)]="selectedDesignation"
-                                    [ngClass]="{'is-invalid':designationId.errors && (designationId.touched || designationId.dirty)}">
-                                    <mat-option *ngFor="let des of designation" [value]="des.id">
-                                        {{ des.designationName }}</mat-option>
-                                </mat-select>
-                                <mat-error *ngIf="designationId.errors?.required">Required Field</mat-error>
+                                <mat-label>Hire Date</mat-label>
+                                <input matInput [matDatepicker]="picker2" formControlName="hireDate"
+                                    [ngClass]="{'is-invalid':hireDate.errors && (hireDate.touched || hireDate.dirty)}">
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <mat-datepicker #picker2></mat-datepicker>
+                                <mat-error *ngIf="hireDate.errors?.required">Required Field</mat-error>
                             </mat-form-field>
                         </div>
                     </div>
-                </div>
-                <div class="form-group mt-4 text-center">
-                    <p-toast position="top-right"></p-toast>
-                    <button class="me-3" mat-icon mat-raised-button color="warn">
-                        Close<mat-icon>clear</mat-icon></button>
-                    <button mat-icon mat-raised-button color="primary" (click)="onPost()">
-                        Create<mat-icon>add</mat-icon></button>
+                    <div class="form-group mt-2 text-center">
+                        <p-toast position="top-right"></p-toast>
+                        <button mat-icon mat-raised-button color="primary" (click)="onPost()">
+                            Create<mat-icon>add</mat-icon></button>
+                    </div>
                 </div>
             </form>
 
