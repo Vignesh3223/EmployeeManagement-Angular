@@ -1,3 +1,12 @@
 .example-full-width{
     width:80%;
 }
+
+.sec1{
+    background-color: black;
+    padding: 12px;
+}
+
+h1{
+    color: whitesmoke;
+}

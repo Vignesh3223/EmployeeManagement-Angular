@@ -23,8 +23,7 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DeleteemployeeComponent } from './allemployees/deleteemployee/deleteemployee.component';
 import { DatePipe } from '@angular/common';
 import { UpdatestatusComponent } from './updatestatus/updatestatus.component';
-import { OnlineemployeesComponent } from './onlineemployees/onlineemployees.component';
-import { OfflineemployeesComponent } from './offlineemployees/offlineemployees.component';
+import { StatusComponent } from './status/status.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +36,7 @@ import { OfflineemployeesComponent } from './offlineemployees/offlineemployees.c
     EditprofileComponent,
     DeleteemployeeComponent,
     UpdatestatusComponent,
-    OnlineemployeesComponent,
-    OfflineemployeesComponent
+    StatusComponent,
   ],
   imports: [
     CommonModule,

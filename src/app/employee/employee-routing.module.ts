@@ -9,8 +9,7 @@ import { ViewemployeeComponent } from './allemployees/viewemployee/viewemployee.
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DeleteemployeeComponent } from './allemployees/deleteemployee/deleteemployee.component';
 import { UpdatestatusComponent } from './updatestatus/updatestatus.component';
-import { OnlineemployeesComponent } from './onlineemployees/onlineemployees.component';
-import { OfflineemployeesComponent } from './offlineemployees/offlineemployees.component';
+import { StatusComponent } from './status/status.component';
 import { authGuard } from 'src/guard/auth.guard';
 
 const routes: Routes = [
@@ -42,11 +41,9 @@ const routes: Routes = [
     path: "status", component: UpdatestatusComponent, canActivate: [authGuard]
   },
   {
-    path: "online", component: OnlineemployeesComponent, canActivate: [authGuard]
-  },
-  {
-    path: "offline", component: OfflineemployeesComponent, canActivate: [authGuard]
+    path: "statuslist", component: StatusComponent, canActivate: [authGuard]
   }
+
 ];
 
 @NgModule({

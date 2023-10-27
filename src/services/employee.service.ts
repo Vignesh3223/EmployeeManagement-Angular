@@ -123,4 +123,11 @@ export class EmployeeService {
     };
     return this.http.delete<Employee[]>(this.employeeapi + '/' + 'DeleteEmployee' + '/' + id, options);
   }
+
+  updateStatus(id:number,activity: string):any {
+    return this.http.put<Employee[]>(this.employeeapi + '/' + 'UpdateStatus' + '/' + id + '?activity='+ activity, activity).subscribe();
+  }
+
+  public status = new BehaviorSubject<Employee[]>([]);
+  activity = this.status.asObservable();
 }

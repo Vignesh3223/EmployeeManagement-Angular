@@ -1,1 +1,24 @@
-<p>updatestatus works!</p>
+<section class="sec1">
+    <div class="container">
+        <h1 class="mt-3">Update Status</h1>
+        <hr>
+        <div class="row mt-5" *ngIf="employeeData">
+            <div class="col-md-12 d-flex">
+                <h2 class="me-3">Active Status</h2>
+                <input type="text" matInput placeholder="status" readonly> 
+                <!-- [(ngModel)]="employeeData.isActive" -->
+            </div>
+            <div class="col-md-12 mt-5">
+                <button mat-fab matTooltip="Go Online" color="primary" class="me-5" (click)="updateStatus(employeeData.id,'online')">
+                    <mat-icon>flash_on</mat-icon>
+                </button>
+                <button mat-fab matTooltip="Go Offline" color="accent" class="me-5" (click)="updateStatus(employeeData.id,'offline')">
+                    <mat-icon>flash_off</mat-icon>
+                </button>
+                <button mat-fab matTooltip="Set as Away" color="warn" class="me-5" (click)="updateStatus(employeeData.id,'away')">
+                    <mat-icon>transfer_within_a_station</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

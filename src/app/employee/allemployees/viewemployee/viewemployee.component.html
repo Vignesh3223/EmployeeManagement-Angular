@@ -5,79 +5,86 @@
             <div class="col-md-2"></div>
             <div class="col-md-8 text-center mb-5">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-dark table-hover">
+                    <table class="table table-bordered table-light table-hover">
                         <tbody *ngFor="let emp of empdata">
                             <tr>
-                                <td>First Name</td>
+                                <td colspan="3" class="text-center">
+                                    Personal Info
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Date of Birth</th>
+                            </tr>
+                            <tr>
                                 <td>{{emp.firstName}}</td>
-                            </tr>
-                            <tr>
-                                <td>Last Name</td>
                                 <td>{{emp.lastName}}</td>
-                            </tr>
-                            <tr>
-                                <td>Date of Birth</td>
                                 <td>{{emp.dateOfBirth}}</td>
                             </tr>
                             <tr>
-                                <td>Email</td>
+                                <td colspan="3" class="text-center">
+                                    Contact Info
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <th>Username</th>
+                                <th>Mobile Number</th>
+                            </tr>
+                            <tr>
                                 <td>{{emp.email}}</td>
-                            </tr>
-                            <tr>
-                                <td>Username</td>
                                 <td>{{emp.username}}</td>
-                            </tr>
-                            <tr>
-                                <td>Mobile Number</td>
                                 <td>{{emp.mobileNumber}}</td>
                             </tr>
                             <tr>
-                                <td>Address</td>
-                                <td>{{emp.addressLine1}}<br>
-                                    {{emp.addressLine2}}</td>
+                                <td colspan="3" class="text-center">
+                                    Address Info
+                                </td>
                             </tr>
                             <tr>
-                                <td>City</td>
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>State</th>
+                            </tr>
+                            <tr>
+                                <td>{{emp.addressLine1}}<br>{{emp.addressLine2}}</td>
                                 <td>{{emp.city}}</td>
+                                <td>{{emp.state}} - {{emp.zipCode}}</td>
                             </tr>
                             <tr>
-                                <td>State</td>
-                                <td>{{emp.state}}</td>
+                                <td colspan="3" class="text-center">
+                                    Professional Info
+                                </td>
                             </tr>
                             <tr>
-                                <td>Zip Code</td>
-                                <td>{{emp.zipCode}}</td>
+                                <th>Hire Date</th>
+                                <th>Department</th>
+                                <th>Designation</th>
                             </tr>
                             <tr>
-                                <td>Hire Date</td>
                                 <td>{{emp.hireDate}}</td>
-                            </tr>
-                            <tr>
-                                <td>Department</td>
                                 <td>{{emp.departmentname}}</td>
-                            </tr>
-                            <tr>
-                                <td>Designation</td>
                                 <td>{{emp.designationName}}</td>
                             </tr>
                             <tr>
-                                <td>Basic Salary</td>
+                                <td colspan="3" class="text-center">
+                                    Salary Info
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Basic Salary</th>
+                                <th>Bonus & Benefits</th>
+                                <th>Other Allowances</th>
+                            </tr>
+                            <tr>
                                 <td>{{emp.basicSalary}}</td>
-                            </tr>
-                            <tr>
-                                <td>Bonus</td>
-                                <td>{{emp.bonus}}</td>
-                            </tr>
-                            <tr>
-                                <td>Benefits</td>
-                                <td>{{emp.benefits}}</td>
-                            </tr>
-                            <tr>
-                                <td>Other Allowances</td>
+                                <td>{{emp.bonus}} / {{emp.benefits}}</td>
                                 <td>{{emp.otherAllowance}}</td>
                             </tr>
                         </tbody>
                     </table>
+                    
                 </div>
             </div>
             <div class="col-md-2"></div>

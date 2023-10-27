@@ -33,7 +33,7 @@ export class EditprofileComponent implements OnInit {
     isActive: false,
     departmentId: 0,
     designationId: 0,
-    createdDate: new Date
+    createdDate: new Date,
   }
 
   EditForm: FormGroup | any;

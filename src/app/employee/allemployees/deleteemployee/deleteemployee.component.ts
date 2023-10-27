@@ -32,7 +32,7 @@ export class DeleteemployeeComponent implements OnInit {
     isActive: false,
     departmentId: 0,
     designationId: 0,
-    createdDate: new Date
+    createdDate: new Date,
   }
 
   DeleteForm: FormGroup | any;
