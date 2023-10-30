@@ -125,6 +125,6 @@ export class EmployeeService {
     return this.http.put<Employee[]>(this.employeeapi + '/' + 'UpdateStatus' + '/' + id + '?activity=' + activity, activity).subscribe();
   }
 
-  public status = new BehaviorSubject<Employee[]>([]);
+  public status = new BehaviorSubject<string>('');
   activity = this.status.asObservable();
 }
