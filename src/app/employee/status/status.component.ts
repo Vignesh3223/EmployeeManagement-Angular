@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/models/employee';
 import { EmployeeService } from 'src/services/employee.service';
-import { Designation } from 'src/models/designation';
 import { DesignationService } from 'src/services/designation.service';
-
+import { MessageService } from 'primeng/api';
+import { map, take, timer } from 'rxjs';
 
 @Component({
   selector: 'app-status',
@@ -15,7 +15,10 @@ export class StatusComponent implements OnInit {
   statusData: Employee | any;
   activestatus: string | any;
 
-  constructor(private employeeService: EmployeeService, private desigService: DesignationService) { }
+  constructor(private employeeService: EmployeeService,
+    private desigService: DesignationService,
+    private messageService: MessageService) { }
+
   ngOnInit(): void {
     this.employeeService.status.subscribe(
       (res) => {
@@ -37,5 +40,34 @@ export class StatusComponent implements OnInit {
             });
           });
       });
+  }
+
+  updateStatus(id: number, newstatus: any) {
+    timer(2000).pipe(take(1)).subscribe(() => {
+      this.employeeService.getEmployees().subscribe(
+        (res) => {
+          for (var i = 0; i < res.length; i++) {
+            if (res[i].id === id) {
+              this.employeeService.status.next(newstatus);
+              console.log(`Status updated for user with id ${id} : ${newstatus}`);
+              break;
+            }
+          }
+        });
+    });
+    // timer(2000).pipe(take(1)).subscribe(() => {
+    //   this.employeeService.getEmployeeById(id).subscribe(
+    //     (employee) => {
+    //       if (employee) {
+    //         this.employeeService.status.next(newstatus);
+    //         console.log(`Status updated for user with id ${id}`);
+    //       } else {
+    //         console.log(`No user found with id ${id}`);
+    //       }
+    //     });
+    // });
+    timer(4000).pipe(take(1)).subscribe(() => {
+      this.employeeService.updateStatus(id, newstatus);
+    });
   }
 }

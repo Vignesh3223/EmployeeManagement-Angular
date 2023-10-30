@@ -5,14 +5,11 @@ import { Employee } from 'src/models/employee';
 import { Response } from 'src/models/employee';
 import { Login } from 'src/models/login';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { MessageService } from 'primeng/api';
 import { EmployeeStoreService } from './employee-store.service';
 import { Token } from '@angular/compiler';
-import * as Rx from 'rxjs';
-import { from, Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -124,8 +121,8 @@ export class EmployeeService {
     return this.http.delete<Employee[]>(this.employeeapi + '/' + 'DeleteEmployee' + '/' + id, options);
   }
 
-  updateStatus(id:number,activity: string):any {
-    return this.http.put<Employee[]>(this.employeeapi + '/' + 'UpdateStatus' + '/' + id + '?activity='+ activity, activity).subscribe();
+  updateStatus(id: number, activity: string): any {
+    return this.http.put<Employee[]>(this.employeeapi + '/' + 'UpdateStatus' + '/' + id + '?activity=' + activity, activity).subscribe();
   }
 
   public status = new BehaviorSubject<Employee[]>([]);

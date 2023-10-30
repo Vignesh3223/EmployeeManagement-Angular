@@ -22,7 +22,6 @@ import { ViewemployeeComponent } from './allemployees/viewemployee/viewemployee.
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DeleteemployeeComponent } from './allemployees/deleteemployee/deleteemployee.component';
 import { DatePipe } from '@angular/common';
-import { UpdatestatusComponent } from './updatestatus/updatestatus.component';
 import { StatusComponent } from './status/status.component';
 
 @NgModule({
@@ -35,7 +34,6 @@ import { StatusComponent } from './status/status.component';
     ViewemployeeComponent,
     EditprofileComponent,
     DeleteemployeeComponent,
-    UpdatestatusComponent,
     StatusComponent,
   ],
   imports: [

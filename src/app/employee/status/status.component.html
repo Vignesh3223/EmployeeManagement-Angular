@@ -12,6 +12,7 @@
                                 <th>Email</th>
                                 <th>Designation</th>
                                 <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody *ngFor="let emp of statusData">
@@ -19,18 +20,27 @@
                                 <td>{{emp.username}}</td>
                                 <td>{{emp.email}}</td>
                                 <td>{{emp.designationName}}</td>
-                                <!-- <td>
-                                    <div *ngIf="emp.isActive==true">
-                                        Online
-                                    </div>
-                                    <div *ngIf="emp.isActive==false">
-                                        Offline
-                                    </div>
-                                    <div *ngIf="emp.isActive==null">
-                                        Away
-                                    </div>
-                                </td> -->
                                 <td>{{activestatus}}</td>
+                                <td class="d-flex ps-5">
+                                    <div *ngIf="emp.isActive!=true">
+                                        <button mat-mini-fab matTooltip="Go Online" color="primary" class="me-5"
+                                            (click)="updateStatus(emp.id,'online')">
+                                            <mat-icon>flash_on</mat-icon>
+                                        </button>
+                                    </div>
+                                    <div *ngIf="emp.isActive!=false">
+                                        <button mat-mini-fab matTooltip="Go Offline" color="accent" class="me-5"
+                                            (click)="updateStatus(emp.id,'offline')">
+                                            <mat-icon>flash_off</mat-icon>
+                                        </button>
+                                    </div>
+                                    <div *ngIf="emp.isActive!=null">
+                                        <button mat-mini-fab matTooltip="Set as Away" color="warn" class="me-5"
+                                            (click)="updateStatus(emp.id,'away')">
+                                            <mat-icon>transfer_within_a_station</mat-icon>
+                                        </button>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

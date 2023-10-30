@@ -8,7 +8,6 @@ import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { ViewemployeeComponent } from './allemployees/viewemployee/viewemployee.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DeleteemployeeComponent } from './allemployees/deleteemployee/deleteemployee.component';
-import { UpdatestatusComponent } from './updatestatus/updatestatus.component';
 import { StatusComponent } from './status/status.component';
 import { authGuard } from 'src/guard/auth.guard';
 
@@ -36,9 +35,6 @@ const routes: Routes = [
   },
   {
     path: "deleteemployee/:id", component: DeleteemployeeComponent, canActivate: [authGuard]
-  },
-  {
-    path: "status", component: UpdatestatusComponent, canActivate: [authGuard]
   },
   {
     path: "statuslist", component: StatusComponent, canActivate: [authGuard]
