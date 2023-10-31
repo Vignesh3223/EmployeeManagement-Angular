@@ -43,6 +43,7 @@ export class StatusComponent implements OnInit {
   }
 
   updateStatus(id: number, newstatus: any) {
+    timer(2000).pipe(take(1)).subscribe(() => {
     this.employeeService.getEmployees().subscribe(
       (res) => {
         for (var i = 0; i < res.length; i++) {
@@ -53,6 +54,7 @@ export class StatusComponent implements OnInit {
           }
         }
       });
+    });
     // timer(2000).pipe(take(1)).subscribe(() => {
     //   this.employeeService.getEmployeeById(id).subscribe(
     //     (employee) => {
