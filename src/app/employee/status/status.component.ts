@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/models/employee';
 import { EmployeeService } from 'src/services/employee.service';
 import { DesignationService } from 'src/services/designation.service';
-import { MessageService } from 'primeng/api';
 import { map, take, timer } from 'rxjs';
 
 @Component({
@@ -10,17 +9,18 @@ import { map, take, timer } from 'rxjs';
   templateUrl: './status.component.html',
   styleUrls: ['./status.component.css']
 })
+
 export class StatusComponent implements OnInit {
 
   statusData: Employee | any;
+  employee: Employee | any;
   activestatus: string | any;
 
   constructor(private employeeService: EmployeeService,
-    private desigService: DesignationService,
-    private messageService: MessageService) { }
+    private desigService: DesignationService) { }
 
   ngOnInit(): void {
-    this.employeeService.status.subscribe(
+    this.employeeService.activity.subscribe(
       (res) => {
         this.activestatus = res;
         console.log(this.activestatus);
@@ -43,18 +43,16 @@ export class StatusComponent implements OnInit {
   }
 
   updateStatus(id: number, newstatus: any) {
-    timer(2000).pipe(take(1)).subscribe(() => {
-      this.employeeService.getEmployees().subscribe(
-        (res) => {
-          for (var i = 0; i < res.length; i++) {
-            if (res[i].id === id) {
-              this.employeeService.status.next(newstatus);
-              console.log(`Status updated for user with id ${id} : ${newstatus}`);
-              break;
-            }
+    this.employeeService.getEmployees().subscribe(
+      (res) => {
+        for (var i = 0; i < res.length; i++) {
+          if (res[i].id === id) {
+            this.employeeService.status.next(newstatus);
+            console.log(`Status updated for user with id ${id}`);
+            break;
           }
-        });
-    });
+        }
+      });
     // timer(2000).pipe(take(1)).subscribe(() => {
     //   this.employeeService.getEmployeeById(id).subscribe(
     //     (employee) => {
@@ -66,6 +64,7 @@ export class StatusComponent implements OnInit {
     //       }
     //     });
     // });
+
     timer(4000).pipe(take(1)).subscribe(() => {
       this.employeeService.updateStatus(id, newstatus);
     });

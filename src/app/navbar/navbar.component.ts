@@ -46,7 +46,7 @@ export class NavbarComponent implements OnInit {
     this.employeeService.authStatus.subscribe(
       (res) => {
         this.logged = res;
-        setTimeout(() => { this.router.navigate(['login']) }, 500);
+        this.router.navigate(['login']);
       });
   }
 }
